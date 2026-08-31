@@ -1,13 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#fb923c"/>
-      <stop offset="70%" stop-color="#f97316"/>
-    </linearGradient>
-  </defs>
-  <rect x="0" y="0" width="64" height="64" fill="#0f172a" rx="12" ry="12"/>
-  <g transform="translate(12,10)">
-    <path d="M10 10c0 18 0 26 6 30 2.5 2 6 2 8.5 0 6-4 6-12 6-30h-4c0 18 0 24-4 24s-4-6-4-24h-8z" fill="url(#g)"/>
-    <path d="M22-2c4 2 6 5.4 6 9.2 0 3.1-2 5.8-6 7.2-4-1.4-6-4.1-6-7.2 0-3.8 2-7.2 6-9.2z" fill="#0b1220"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MetronForge">
+  <style>
+    .bg { fill: #0f1319; }
+    .mark { stroke: #f08a3c; }
+
+    @media (prefers-color-scheme: light) {
+      .bg { fill: #ffffff; }
+      .mark { stroke: #c25a10; }
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="13" />
+  <g class="mark" fill="none" stroke-width="7" stroke-linecap="round">
+    <path d="M14 47 H50" />
+    <path d="M18 47 V25" />
+    <path d="M32 47 V33" />
+    <path d="M46 47 V25" />
   </g>
 </svg>
