@@ -1,0 +1,469 @@
+<!DOCTYPE html><html dir="ltr" lang="en" class="scroll-smooth" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://metronforge.dev/posts/documentation-as-code-needs-documentation-tests/"><meta name="generator" content="Astro v7.2.9"><!-- General Meta Tags --><title>Documentation as Code Still Needs Tests for Documentation | MetronForge</title><meta name="title" content="Documentation as Code Still Needs Tests for Documentation | MetronForge"><meta name="description" content="Version control and CI improve documentation workflow, but a successful build cannot establish that instructions remain true, complete, or usable."><meta name="author" content="Viktor Mikhalkin"><meta name="robots" content="index, follow, max-image-preview:large"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:type" content="article"><meta property="og:site_name" content="MetronForge"><meta property="og:locale" content="en_US"><meta property="og:title" content="Documentation as Code Still Needs Tests for Documentation | MetronForge"><meta property="og:description" content="Version control and CI improve documentation workflow, but a successful build cannot establish that instructions remain true, complete, or usable."><meta property="og:url" content="https://metronforge.dev/posts/documentation-as-code-needs-documentation-tests/"><meta property="og:image" content="https://metronforge.dev/posts/documentation-as-code-needs-documentation-tests/index.png"><meta property="og:image:alt" content="Documentation as Code Still Needs Tests for Documentation | MetronForge — MetronForge"><!-- Article Published/Modified time --><meta property="article:published_time" content="2022-10-28T00:00:00.000Z"><meta property="article:modified_time" content="2026-09-02T18:00:00.000Z"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://metronforge.dev/posts/documentation-as-code-needs-documentation-tests/"><meta name="twitter:title" content="Documentation as Code Still Needs Tests for Documentation | MetronForge"><meta name="twitter:description" content="Version control and CI improve documentation workflow, but a successful build cannot establish that instructions remain true, complete, or usable."><meta name="twitter:image" content="https://metronforge.dev/posts/documentation-as-code-needs-documentation-tests/index.png"><meta name="twitter:image:alt" content="Documentation as Code Still Needs Tests for Documentation | MetronForge — MetronForge"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Documentation as Code Still Needs Tests for Documentation | MetronForge","description":"Version control and CI improve documentation workflow, but a successful build cannot establish that instructions remain true, complete, or usable.","image":"https://metronforge.dev/posts/documentation-as-code-needs-documentation-tests/index.png","url":"https://metronforge.dev/posts/documentation-as-code-needs-documentation-tests/","mainEntityOfPage":"https://metronforge.dev/posts/documentation-as-code-needs-documentation-tests/","datePublished":"2022-10-28T00:00:00.000Z","dateModified":"2026-09-02T18:00:00.000Z","author":[{"@type":"Person","name":"Viktor Mikhalkin","url":"https://www.linkedin.com/in/v-mikhalkin","identifier":[{"@type":"PropertyValue","propertyID":"ORCID","value":"0009-0000-4954-2300","url":"https://orcid.org/0009-0000-4954-2300"},{"@type":"PropertyValue","propertyID":"idHAL","value":"viktor-mikhalkin","url":"https://cv.hal.science/viktor-mikhalkin"}],"sameAs":["https://orcid.org/0009-0000-4954-2300","https://cv.hal.science/viktor-mikhalkin","https://www.linkedin.com/in/v-mikhalkin","https://github.com/metronforge"]}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="MetronForge" href="https://metronforge.dev/rss.xml"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f1319" media="(prefers-color-scheme: dark)"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CYDbzu1r.js"></script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.BSXV8FDz.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+</style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: documentation-as-code-still-needs-tests-for-documentation; }@layer astro { ::view-transition-old(documentation-as-code-still-needs-tests-for-documentation) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(documentation-as-code-still-needs-tests-for-documentation) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(documentation-as-code-still-needs-tests-for-documentation) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(documentation-as-code-still-needs-tests-for-documentation) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-2"] { view-transition-name: documentation-as-code; }@layer astro { ::view-transition-old(documentation-as-code) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(documentation-as-code) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(documentation-as-code) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(documentation-as-code) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-3"] { view-transition-name: software-quality; }@layer astro { ::view-transition-old(software-quality) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(software-quality) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(software-quality) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(software-quality) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-4"] { view-transition-name: continuous-integration; }@layer astro { ::view-transition-old(continuous-integration) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(continuous-integration) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(continuous-integration) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(continuous-integration) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-5"] { view-transition-name: engineering-practice; }@layer astro { ::view-transition-old(engineering-practice) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(engineering-practice) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(engineering-practice) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(engineering-practice) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head><body data-astro-cid-ju4pidww><header><a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">Skip to content</a><div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"><div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"><a href="/" class="absolute flex items-center gap-2 whitespace-nowrap sm:static sm:my-auto" aria-label="MetronForge"><svg viewBox="0 0 64 64" class="size-7 text-accent" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"><path d="M14 47 H50"></path><path d="M18 47 V25"></path><path d="M32 47 V33"></path><path d="M46 47 V25"></path></g></svg><span class="hidden text-xl leading-none font-semibold sm:inline-block sm:text-2xl">MetronForge</span></a><nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"><button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg></button><ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&amp;>li>a]:block [&amp;>li>a]:px-4 [&amp;>li>a]:py-3 [&amp;>li>a]:text-center [&amp;>li>a]:font-medium [&amp;>li>a]:hover:text-accent sm:[&amp;>li>a]:px-2 sm:[&amp;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"><li class="col-span-2"><a href="/posts" class="active-nav">Notes</a></li><li class="col-span-2"><a href="/projects">Projects</a></li><li class="col-span-2"><a href="/publications">Publications</a></li><li class="col-span-2"><a href="/about">About</a></li><li class="col-span-1 flex items-center justify-center"><a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg><span class="sr-only">Search</span></a></li><li class="col-span-1 flex items-center justify-center"><button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&amp;&gt;svg]:stroke-accent" title="Toggles light &amp; dark" aria-label="auto" aria-live="polite"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg></button></li></ul></nav></div></div><div class="mx-auto max-w-app px-4"><hr class="border-border" aria-hidden="true"></div></header><script type="module">function e(){let e=document.querySelector(`#menu-btn`),t=document.querySelector(`#menu-items`),n=document.querySelector(`#menu-icon`),r=document.querySelector(`#close-icon`);!e||!t||!n||!r||e.addEventListener(`click`,()=>{let i=e.getAttribute(`aria-expanded`)===`true`;e.setAttribute(`aria-expanded`,i?`false`:`true`),e.setAttribute(`aria-label`,i?`Open Menu`:`Close Menu`),t.classList.toggle(`hidden`),n.classList.toggle(`hidden`),r.classList.toggle(`hidden`)})}e(),document.addEventListener(`astro:after-swap`,e);</script><div class="mx-auto flex w-full max-w-app items-center justify-start px-2"><a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-2 flex hover:text-foreground/75"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span>Go back</span></a></div><script type="module">function e(){let e=document.querySelector(`#back-button`),t=sessionStorage.getItem(`backUrl`);t&&e&&(e.href=t)}document.addEventListener(`astro:page-load`,e),e();</script><main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12" data-pagefind-body><h1 data-astro-transition-scope="astro-eq54l3i4-1" class="inline-block text-2xl font-bold text-accent sm:text-3xl">Documentation as Code Still Needs Tests for Documentation</h1><div class="my-2 flex items-center gap-2"><div class="flex items-center gap-x-2 opacity-80"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg><span class="text-sm sm:text-base">Updated:</span><time class="text-sm sm:text-base" datetime="2026-09-02T18:00:00.000Z">2 Sep, 2026</time></div><span aria-hidden="true" class="max-sm:hidden hidden">|</span></div><div class="mt-3 flex flex-wrap gap-2" data-pagefind-ignore><span class="badge inline-flex items-center text-xs text-muted">Commentary</span></div><p class="mt-3 text-sm text-muted" data-pagefind-ignore>Originally published on<a href="https://www.linkedin.com/posts/v-mikhalkin_write-documentation-like-you-develop-code-activity-6991819897580175360-z_OA" target="_blank" rel="noopener noreferrer" class="text-accent underline decoration-dashed underline-offset-4 hover:no-underline">LinkedIn</a> on 28 Oct 2022.</p><aside class="editorial-context mt-6 rounded-lg border border-border px-4 py-4" aria-labelledby="editorial-context-title" data-pagefind-ignore><p id="editorial-context-title" class="meta text-xs tracking-wide text-muted uppercase">Works discussed</p><ol class="mt-3 space-y-2 text-sm"><li><a href="https://opensource.com/article/22/10/docs-as-code" target="_blank" rel="noopener noreferrer" class="font-medium text-accent underline decoration-dashed underline-offset-4 hover:no-underline">Write documentation like you develop code</a><span class="text-muted"> — Lorna Mitchell, article</span></li></ol></aside><article id="article" lang="en" class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"><p><a href="https://opensource.com/article/22/10/docs-as-code">Lorna Mitchell’s article on treating documentation like code</a> deserves credit for translating a powerful engineering workflow into an approachable practice: use plain text, version control, pull requests, review, automation, and repeatable publication instead of leaving documentation as an isolated final task.</p>
+<p>That workflow solves important provenance and collaboration problems. It does not, by itself, establish that the documentation is correct. A page can compile, pass a style checker, and deploy successfully while giving the reader an obsolete command or an impossible sequence of steps.</p>
+<p>Documentation as code becomes reliable only when it also gains tests appropriate to documentation.</p>
+<h2 id="the-toolchain-verifies-the-artifact-not-necessarily-the-claim">The toolchain verifies the artifact, not necessarily the claim</h2>
+<p>A typical documentation pipeline can check frontmatter, syntax, spelling, internal links, formatting, and whether a static-site generator completes. These checks are valuable because they convert recurring editorial mistakes into immediate feedback.</p>
+<p>But most documentation makes behavioural claims:</p>
+<ul>
+<li>this command installs the tool;</li>
+<li>this option has a particular effect;</li>
+<li>these API fields are required;</li>
+<li>this sequence creates a working deployment;</li>
+<li>this example produces the displayed result;</li>
+<li>this version remains compatible with another component.</li>
+</ul>
+<p>A Markdown parser cannot validate those claims. Treating build success as documentary correctness repeats the same mistake as treating successful compilation as proof that software meets its requirements.</p>
+<p>The source-controlled text and its described system must remain connected by executable or inspectable evidence.</p>
+<h2 id="a-layered-test-model-for-documentation">A layered test model for documentation</h2>
+<p>Different failures require different checks:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Layer</th><th>Example check</th><th>What it can establish</th></tr></thead><tbody><tr><td>Structure</td><td>frontmatter and navigation validation</td><td>the page can be indexed and rendered</td></tr><tr><td>Language</td><td>spelling, terminology, and style rules</td><td>wording follows agreed conventions</td></tr><tr><td>References</td><td>internal and external link checks</td><td>referenced locations are reachable</td></tr><tr><td>Code</td><td>compile or run extracted snippets</td><td>examples are syntactically and operationally valid</td></tr><tr><td>Interface</td><td>compare documented options with schemas or CLI help</td><td>named parameters still exist</td></tr><tr><td>Procedure</td><td>execute instructions in a clean environment</td><td>the documented path reaches the claimed state</td></tr><tr><td>Reader task</td><td>usability review with the intended audience</td><td>a person can understand and complete the task</td></tr><tr><td>Freshness</td><td>ownership and review-expiry checks</td><td>silent staleness becomes visible</td></tr></tbody></table>
+<p>No pipeline needs every layer for every page. A conceptual essay does not require a containerized installation test. A security-sensitive recovery procedure does. The strength of the check should follow the consequence of documentary failure and the cost of obtaining evidence.</p>
+<h2 id="executable-examples-should-be-single-sourced-where-possible">Executable examples should be single-sourced where possible</h2>
+<p>Copied code drifts. A command in a README, tutorial, example project, and test fixture can become four subtly different interfaces. When practical, documentation should include or extract examples from artifacts that are compiled and tested with the product.</p>
+<p>Useful patterns include:</p>
+<ul>
+<li>running fenced code blocks as part of CI;</li>
+<li>generating reference pages from authoritative schemas;</li>
+<li>importing tested example files into documentation;</li>
+<li>building tutorials against disposable containers;</li>
+<li>checking API requests against a versioned contract;</li>
+<li>recording the product and dependency versions used for each procedure.</li>
+</ul>
+<p>Generation is not always the answer. Automatically produced reference material can be complete yet unreadable, while hand-written explanations can express intent and trade-offs more clearly. The goal is not to eliminate prose. It is to avoid two independent sources for facts that machines can keep aligned.</p>
+<h2 id="procedure-tests-need-clean-state-and-explicit-outcomes">Procedure tests need clean state and explicit outcomes</h2>
+<p>Installation and operational guides often appear to work because the author’s machine contains unmentioned credentials, cached dependencies, environment variables, or configuration from an earlier attempt. A credible procedure test starts from a declared state and checks a declared result.</p>
+<p>For example:</p>
+<ol>
+<li>create a clean environment from a pinned image;</li>
+<li>execute only the documented prerequisites and commands;</li>
+<li>capture output and exit status;</li>
+<li>verify the promised service, file, API response, or observable state;</li>
+<li>repeat the teardown and recovery path when those are documented;</li>
+<li>preserve logs so a failure can be distinguished from infrastructure noise.</li>
+</ol>
+<p>This converts a tutorial from a plausible narrative into a reproducible path. It also reveals missing assumptions—the most common class of documentation defect.</p>
+<h2 id="human-review-remains-a-different-oracle">Human review remains a different oracle</h2>
+<p>Automation can show that a command runs. It cannot fully determine whether the reader knows when to use it, understands its risk, or can recover when reality differs from the happy path. Documentation review should therefore separate at least three questions:</p>
+<ul>
+<li><strong>Technical accuracy:</strong> does the described system behave this way?</li>
+<li><strong>Task completeness:</strong> can the intended reader reach the required outcome?</li>
+<li><strong>Explanatory quality:</strong> are purpose, constraints, alternatives, and failure modes understandable?</li>
+</ul>
+<p>Subject-matter experts are good at the first question but often fill gaps from experience. New or representative readers are better at exposing missing context. Editors can detect ambiguity that neither the code nor the original author notices. These roles produce different evidence and should not be collapsed into one approval.</p>
+<h2 id="staleness-is-an-ownership-failure">Staleness is an ownership failure</h2>
+<p>Documentation commonly fails after publication rather than before it. The responsible component changes, but no signal reaches the page owner. Docs-as-code helps because code and documentation can share a repository and review process, yet proximity does not guarantee coordinated change.</p>
+<p>Useful controls include:</p>
+<ul>
+<li>ownership metadata for high-risk pages;</li>
+<li>links from documentation to the code or schema it describes;</li>
+<li>change checks that identify affected docs;</li>
+<li>explicit version applicability;</li>
+<li>review dates based on volatility and consequence;</li>
+<li>analytics and feedback channels that reveal failed reader tasks;</li>
+<li>deletion or archival when a page can no longer be maintained.</li>
+</ul>
+<p>An old review date is not proof of an error, but it is a visible uncertainty. Silent permanence is worse.</p>
+<p>Mitchell’s core recommendation remains sound: documentation benefits from the same collaborative discipline as software. The stronger conclusion is that the analogy must continue beyond Git and pull requests. Software is tested against behaviour; consequential documentation should be tested against the tasks and interfaces it claims to describe. A green documentation build proves that a document was produced. Reliability begins when the pipeline also asks whether the document is still true.</p></article><aside class="card mt-8" aria-labelledby="research-connections" data-pagefind-ignore><h2 id="research-connections" class="text-xl font-semibold">Research connections</h2><div class="mt-4 grid gap-5 md:grid-cols-3"><section><h3 class="font-semibold">Related notes</h3><ul class="mt-2 list-disc space-y-1 ps-5"><li><a class="text-accent hover:underline" href="/posts/token-usage-is-not-an-engineering-outcome">Token Usage Is an Input Cost, Not an Engineering Outcome</a></li></ul></section></div></aside><hr class="my-8 border-dashed"><ul class="mt-4 mb-8 sm:my-8"><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"><a data-astro-transition-scope="astro-bztu2lml-2" href="/tags/documentation-as-code/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>&nbsp;<span>documentation-as-code</span></a></li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"><a data-astro-transition-scope="astro-bztu2lml-3" href="/tags/software-quality/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>&nbsp;<span>software-quality</span></a></li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"><a data-astro-transition-scope="astro-bztu2lml-4" href="/tags/continuous-integration/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>&nbsp;<span>continuous-integration</span></a></li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"><a data-astro-transition-scope="astro-bztu2lml-5" href="/tags/engineering-practice/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>&nbsp;<span>engineering-practice</span></a></li></ul><div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"><button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"><span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span class="sr-only text-sm group-hover:text-accent md:not-sr-only"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>Back To Top</span></button></div><script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script><div class="flex flex-none flex-col items-center justify-center gap-2 md:items-start" data-share-links><span class="text-sm text-muted">Share this note</span><div class="flex items-center gap-2 text-center"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmetronforge.dev%2Fposts%2Fdocumentation-as-code-needs-documentation-tests%2F" target="_blank" rel="noopener noreferrer" class="group inline-flex size-9 items-center justify-center rounded-md border border-border hover:border-accent hover:text-accent" title="Share this note on LinkedIn" aria-label="Share this note on LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 fill-transparent stroke-current stroke-2"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg></a><a href="https://t.me/share/url?url=https%3A%2F%2Fmetronforge.dev%2Fposts%2Fdocumentation-as-code-needs-documentation-tests%2F" target="_blank" rel="noopener noreferrer" class="group inline-flex size-9 items-center justify-center rounded-md border border-border hover:border-accent hover:text-accent" title="Share this note via Telegram" aria-label="Share this note via Telegram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 fill-transparent stroke-current stroke-2"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg></a><button type="button" class="h-9 rounded-md border border-border px-3 text-sm hover:border-accent hover:text-accent" data-copy-link>Copy link</button><span class="sr-only" aria-live="polite" data-copy-status></span></div></div><script type="module">function e(){let e=document.querySelector(`[data-share-links]`),t=e?.querySelector(`[data-copy-link]`),n=e?.querySelector(`[data-copy-status]`);!t||t.dataset.ready===`true`||(t.dataset.ready=`true`,t.addEventListener(`click`,async()=>{await navigator.clipboard.writeText(window.location.href),t.textContent=`Copied`,n&&(n.textContent=`Link copied to clipboard`),window.setTimeout(()=>{t.textContent=`Copy link`,n&&(n.textContent=``)},1200)}))}e(),document.addEventListener(`astro:after-swap`,e);</script><hr class="my-6 border-dashed"><!-- Previous/Next Post Buttons --><div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2"><a href="/posts/architecture-is-the-set-of-decisions-that-constrain-change" class="flex w-full gap-1 hover:opacity-75"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><div><span>Previous Note</span><div class="text-sm text-accent/85">Architecture Is the Set of Decisions That Constrain Future Change</div></div></a><a href="/posts/property-based-testing-starts-with-the-property" class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"><div><span>Next Note</span><div class="text-sm text-accent/85">Property-Based Testing Starts with the Property, Not the Generator</div></div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg></a></div></main><footer class="w-full mt-auto"><div class="mx-auto max-w-app px-0"><hr class="border-border" aria-hidden="true"></div><div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"><div class="flex-wrap justify-center gap-1 flex"><a href="https://github.com/metronforge" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="MetronForge on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg><span class="sr-only">MetronForge on GitHub</span></a><a href="https://www.linkedin.com/in/v-mikhalkin" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="MetronForge on LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg><span class="sr-only">MetronForge on LinkedIn</span></a><a href="mailto:viktormikhalkin@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to MetronForge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg><span class="sr-only">Send an email to MetronForge</span></a></div><div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"><span>Copyright &#169; 2026</span><span class="hidden sm:inline">&nbsp;|&nbsp;</span><span>All rights reserved.</span></div></div></footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;624f1fa5d546473eb75d6fe97747e793&quot;}"></script></body></html><script data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      // Check if --file-name-offset custom property exists
+      const computedStyle = getComputedStyle(codeBlock);
+      const hasFileNameOffset =
+        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
+
+      // Determine the top positioning class
+      const topClass = hasFileNameOffset
+        ? "top-(--file-name-offset)"
+        : "-top-3";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script>
