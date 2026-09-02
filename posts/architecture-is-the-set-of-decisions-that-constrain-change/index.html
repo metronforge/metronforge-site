@@ -1,0 +1,431 @@
+<!DOCTYPE html><html dir="ltr" lang="en" class="scroll-smooth" data-astro-cid-ju4pidww><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://metronforge.dev/posts/architecture-is-the-set-of-decisions-that-constrain-change/"><meta name="generator" content="Astro v7.2.9"><!-- General Meta Tags --><title>Architecture Is the Set of Decisions That Constrain Future Change | MetronForge</title><meta name="title" content="Architecture Is the Set of Decisions That Constrain Future Change | MetronForge"><meta name="description" content="Pierre Pureur and Kurt Bittner correctly place decisions at the centre of architecture; their importance follows from reversal cost and blast radius."><meta name="author" content="Viktor Mikhalkin"><meta name="robots" content="index, follow, max-image-preview:large"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:type" content="article"><meta property="og:site_name" content="MetronForge"><meta property="og:locale" content="en_US"><meta property="og:title" content="Architecture Is the Set of Decisions That Constrain Future Change | MetronForge"><meta property="og:description" content="Pierre Pureur and Kurt Bittner correctly place decisions at the centre of architecture; their importance follows from reversal cost and blast radius."><meta property="og:url" content="https://metronforge.dev/posts/architecture-is-the-set-of-decisions-that-constrain-change/"><meta property="og:image" content="https://metronforge.dev/posts/architecture-is-the-set-of-decisions-that-constrain-change/index.png"><meta property="og:image:alt" content="Architecture Is the Set of Decisions That Constrain Future Change | MetronForge — MetronForge"><!-- Article Published/Modified time --><meta property="article:published_time" content="2022-04-16T00:00:00.000Z"><meta property="article:modified_time" content="2026-09-02T18:00:00.000Z"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://metronforge.dev/posts/architecture-is-the-set-of-decisions-that-constrain-change/"><meta name="twitter:title" content="Architecture Is the Set of Decisions That Constrain Future Change | MetronForge"><meta name="twitter:description" content="Pierre Pureur and Kurt Bittner correctly place decisions at the centre of architecture; their importance follows from reversal cost and blast radius."><meta name="twitter:image" content="https://metronforge.dev/posts/architecture-is-the-set-of-decisions-that-constrain-change/index.png"><meta name="twitter:image:alt" content="Architecture Is the Set of Decisions That Constrain Future Change | MetronForge — MetronForge"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Architecture Is the Set of Decisions That Constrain Future Change | MetronForge","description":"Pierre Pureur and Kurt Bittner correctly place decisions at the centre of architecture; their importance follows from reversal cost and blast radius.","image":"https://metronforge.dev/posts/architecture-is-the-set-of-decisions-that-constrain-change/index.png","url":"https://metronforge.dev/posts/architecture-is-the-set-of-decisions-that-constrain-change/","mainEntityOfPage":"https://metronforge.dev/posts/architecture-is-the-set-of-decisions-that-constrain-change/","datePublished":"2022-04-16T00:00:00.000Z","dateModified":"2026-09-02T18:00:00.000Z","author":[{"@type":"Person","name":"Viktor Mikhalkin","url":"https://www.linkedin.com/in/v-mikhalkin","identifier":[{"@type":"PropertyValue","propertyID":"ORCID","value":"0009-0000-4954-2300","url":"https://orcid.org/0009-0000-4954-2300"},{"@type":"PropertyValue","propertyID":"idHAL","value":"viktor-mikhalkin","url":"https://cv.hal.science/viktor-mikhalkin"}],"sameAs":["https://orcid.org/0009-0000-4954-2300","https://cv.hal.science/viktor-mikhalkin","https://www.linkedin.com/in/v-mikhalkin","https://github.com/metronforge"]}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="MetronForge" href="https://metronforge.dev/rss.xml"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f1319" media="(prefers-color-scheme: dark)"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CYDbzu1r.js"></script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.BSXV8FDz.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+</style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: architecture-is-the-set-of-decisions-that-constrain-future-change; }@layer astro { ::view-transition-old(architecture-is-the-set-of-decisions-that-constrain-future-change) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(architecture-is-the-set-of-decisions-that-constrain-future-change) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(architecture-is-the-set-of-decisions-that-constrain-future-change) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(architecture-is-the-set-of-decisions-that-constrain-future-change) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-2"] { view-transition-name: software-architecture; }@layer astro { ::view-transition-old(software-architecture) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(software-architecture) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(software-architecture) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(software-architecture) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-3"] { view-transition-name: architecture-decisions; }@layer astro { ::view-transition-old(architecture-decisions) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(architecture-decisions) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(architecture-decisions) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(architecture-decisions) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-4"] { view-transition-name: evolutionary-architecture; }@layer astro { ::view-transition-old(evolutionary-architecture) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(evolutionary-architecture) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(evolutionary-architecture) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(evolutionary-architecture) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-5"] { view-transition-name: software-design; }@layer astro { ::view-transition-old(software-design) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(software-design) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(software-design) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(software-design) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head><body data-astro-cid-ju4pidww><header><a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">Skip to content</a><div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"><div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"><a href="/" class="absolute flex items-center gap-2 whitespace-nowrap sm:static sm:my-auto" aria-label="MetronForge"><svg viewBox="0 0 64 64" class="size-7 text-accent" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"><path d="M14 47 H50"></path><path d="M18 47 V25"></path><path d="M32 47 V33"></path><path d="M46 47 V25"></path></g></svg><span class="hidden text-xl leading-none font-semibold sm:inline-block sm:text-2xl">MetronForge</span></a><nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"><button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg></button><ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&amp;>li>a]:block [&amp;>li>a]:px-4 [&amp;>li>a]:py-3 [&amp;>li>a]:text-center [&amp;>li>a]:font-medium [&amp;>li>a]:hover:text-accent sm:[&amp;>li>a]:px-2 sm:[&amp;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"><li class="col-span-2"><a href="/posts" class="active-nav">Notes</a></li><li class="col-span-2"><a href="/projects">Projects</a></li><li class="col-span-2"><a href="/publications">Publications</a></li><li class="col-span-2"><a href="/about">About</a></li><li class="col-span-1 flex items-center justify-center"><a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg><span class="sr-only">Search</span></a></li><li class="col-span-1 flex items-center justify-center"><button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&amp;&gt;svg]:stroke-accent" title="Toggles light &amp; dark" aria-label="auto" aria-live="polite"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg></button></li></ul></nav></div></div><div class="mx-auto max-w-app px-4"><hr class="border-border" aria-hidden="true"></div></header><script type="module">function e(){let e=document.querySelector(`#menu-btn`),t=document.querySelector(`#menu-items`),n=document.querySelector(`#menu-icon`),r=document.querySelector(`#close-icon`);!e||!t||!n||!r||e.addEventListener(`click`,()=>{let i=e.getAttribute(`aria-expanded`)===`true`;e.setAttribute(`aria-expanded`,i?`false`:`true`),e.setAttribute(`aria-label`,i?`Open Menu`:`Close Menu`),t.classList.toggle(`hidden`),n.classList.toggle(`hidden`),r.classList.toggle(`hidden`)})}e(),document.addEventListener(`astro:after-swap`,e);</script><div class="mx-auto flex w-full max-w-app items-center justify-start px-2"><a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-2 flex hover:text-foreground/75"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span>Go back</span></a></div><script type="module">function e(){let e=document.querySelector(`#back-button`),t=sessionStorage.getItem(`backUrl`);t&&e&&(e.href=t)}document.addEventListener(`astro:page-load`,e),e();</script><main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12" data-pagefind-body><h1 data-astro-transition-scope="astro-eq54l3i4-1" class="inline-block text-2xl font-bold text-accent sm:text-3xl">Architecture Is the Set of Decisions That Constrain Future Change</h1><div class="my-2 flex items-center gap-2"><div class="flex items-center gap-x-2 opacity-80"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg><span class="text-sm sm:text-base">Updated:</span><time class="text-sm sm:text-base" datetime="2026-09-02T18:00:00.000Z">2 Sep, 2026</time></div><span aria-hidden="true" class="max-sm:hidden hidden">|</span></div><div class="mt-3 flex flex-wrap gap-2" data-pagefind-ignore><span class="badge inline-flex items-center text-xs text-muted">Commentary</span></div><p class="mt-3 text-sm text-muted" data-pagefind-ignore>Originally published on<a href="https://www.linkedin.com/posts/v-mikhalkin_software-architecture-it-might-not-be-what-activity-6921129965706973184-bjGu" target="_blank" rel="noopener noreferrer" class="text-accent underline decoration-dashed underline-offset-4 hover:no-underline">LinkedIn</a> on 16 Apr 2022.</p><aside class="editorial-context mt-6 rounded-lg border border-border px-4 py-4" aria-labelledby="editorial-context-title" data-pagefind-ignore><p id="editorial-context-title" class="meta text-xs tracking-wide text-muted uppercase">Works discussed</p><ol class="mt-3 space-y-2 text-sm"><li><a href="https://www.infoq.com/articles/what-software-architecture/" target="_blank" rel="noopener noreferrer" class="font-medium text-accent underline decoration-dashed underline-offset-4 hover:no-underline">Software Architecture: It Might Not Be What You Think It Is</a><span class="text-muted"> — Pierre Pureur, Kurt Bittner, article</span></li></ol></aside><article id="article" lang="en" class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"><p><a href="https://www.infoq.com/articles/what-software-architecture/">Pierre Pureur and Kurt Bittner’s article on software architecture</a> deserves explicit credit for shifting attention from boxes and structures to decisions. Their argument also places architecting in the development team rather than in a detached role that produces diagrams for others to implement.</p>
+<p>That framing is stronger than defining architecture as a catalogue of components. It can be made more operational by asking why some decisions are architectural while thousands of other design choices are not.</p>
+<p>A decision becomes architectural when it materially constrains future change: reversing it is expensive, its effects cross boundaries, or evidence about its quality arrives only after significant commitment.</p>
+<h2 id="structure-is-evidence-of-decisions-not-the-whole-architecture">Structure is evidence of decisions, not the whole architecture</h2>
+<p>A system diagram may show services, databases, queues, clients, and trust zones. It usually does not explain why those boundaries exist, which alternatives were rejected, or what must remain true when the implementation evolves.</p>
+<p>Two systems can have similar diagrams and very different architectures. One service boundary may isolate regulatory data; another may only reflect an old team chart. One queue may be essential for absorbing load; another may be accidental complexity. The visible structure records consequences of decisions but not their full rationale or force.</p>
+<p>This explains why copying a reference architecture is risky. The copied boxes arrive without the constraints that made them reasonable. A pattern name can describe a solution shape; it cannot decide whether the local problem justifies its coordination, latency, consistency, and operational costs.</p>
+<h2 id="four-properties-make-a-decision-architectural">Four properties make a decision architectural</h2>
+<p>The boundary is gradual, but four properties are especially useful:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property</th><th>Architectural question</th></tr></thead><tbody><tr><td>Reversal cost</td><td>How much data migration, retraining, downtime, or rewriting would reversal require?</td></tr><tr><td>Blast radius</td><td>How many components, teams, users, or controls depend on the decision?</td></tr><tr><td>Evidence delay</td><td>How late will scalability, operability, security, or maintainability consequences become visible?</td></tr><tr><td>Coordination load</td><td>How many independent actors must agree and move together to change it safely?</td></tr></tbody></table>
+<p>A local variable name usually scores low on all four. A data ownership boundary, public protocol, identity model, consistency guarantee, or deployment topology can score high. Programming language choice may be local in a small replaceable utility and architectural in a platform whose skills, libraries, and runtime become organization-wide commitments.</p>
+<p>This test also prevents “architecture” from becoming a synonym for “important.” A business rule can be important while remaining easy to change in one module. A seemingly mundane identifier format can be architectural when it leaks into databases, APIs, logs, and partner integrations.</p>
+<h2 id="decisions-need-falsifiable-consequences">Decisions need falsifiable consequences</h2>
+<p>An architecture decision record is useful only if it preserves more than preference. A reviewable decision should state:</p>
+<ul>
+<li>the problem and forces present at the time;</li>
+<li>the chosen option and meaningful alternatives;</li>
+<li>assumptions on which the choice depends;</li>
+<li>expected benefits and accepted liabilities;</li>
+<li>boundaries and invariants the implementation must preserve;</li>
+<li>evidence that would support or weaken the decision;</li>
+<li>conditions under which it should be revisited.</li>
+</ul>
+<p>This turns rationale into a testable claim. “Use asynchronous messaging for scalability” is too vague. A better record names the expected workload, permitted delivery semantics, ordering requirements, failure handling, and the measurements that will show whether the added complexity is justified.</p>
+<p>The record need not predict the future perfectly. Its purpose is to make later change more informed. When an assumption fails, the team can distinguish a decision that was reasonable under old evidence from one that was never supported.</p>
+<h2 id="architecture-should-be-executable-where-possible">Architecture should be executable where possible</h2>
+<p>If architecture is made of consequential decisions, some of their constraints can be checked continuously:</p>
+<ul>
+<li>dependency rules can prevent forbidden module coupling;</li>
+<li>contract tests can preserve public interface expectations;</li>
+<li>policy checks can enforce identity and data boundaries;</li>
+<li>fitness functions can watch latency, resilience, or deployment properties;</li>
+<li>migration tests can validate compatibility across schema versions;</li>
+<li>threat models can generate security tests for trust-boundary violations;</li>
+<li>observability can reveal whether assumed failure isolation exists in operation.</li>
+</ul>
+<p>These checks do not replace architectural judgment. They keep implemented structure from silently diverging from accepted decisions. They also make architecture visible to developers in the ordinary delivery loop rather than only during periodic review.</p>
+<p>The strongest constraints should be enforced closest to the mechanism they govern. A prose rule that one service must not read another service’s database is weaker than network, identity, and ownership controls that make the prohibited path unavailable. Documentation explains the decision; enforcement preserves it.</p>
+<h2 id="architecting-is-distributed-but-responsibility-cannot-be-vague">Architecting is distributed, but responsibility cannot be vague</h2>
+<p>Pureur and Bittner are right that architecture cannot be handed off to a committee disconnected from implementation. Developers discover constraints and consequences while building and operating the system. Architectural knowledge must therefore live within teams.</p>
+<p>Distributed architecting does not mean that nobody owns cross-cutting decisions. A local team may optimize its component while transferring cost to security, operations, data governance, or other services. Decisions with a broad blast radius need an explicit forum, named participants, and a record of dissent and uncertainty.</p>
+<p>The architect’s useful function is not to monopolize diagrams. It is to improve decision quality: expose hidden constraints, connect affected groups, demand evidence proportional to commitment, and ensure that accepted boundaries remain testable. Depending on scale, that function may be performed by senior engineers, a rotating group, or a dedicated role that remains close to implementation.</p>
+<h2 id="architecture-is-a-portfolio-of-commitments">Architecture is a portfolio of commitments</h2>
+<p>Not every decision should be made early. Where reversal is cheap, experimentation is better than speculation. Where evidence arrives quickly, the system can evolve through measured feedback. Architectural effort should concentrate on commitments that are expensive to undo and uncertainty that becomes dangerous after scale.</p>
+<p>This produces a practical rule:</p>
+<ol>
+<li>identify decisions with high reversal cost or blast radius;</li>
+<li>make their assumptions and consequences explicit;</li>
+<li>defer commitment when a cheap experiment can produce better evidence;</li>
+<li>enforce the chosen invariants in code, infrastructure, and tests;</li>
+<li>revisit the decision when its recorded assumptions change.</li>
+</ol>
+<p>The article by Pureur and Bittner correctly rejects architecture as static structure drawn by a separate class of people. The deeper implication is that architecture is the managed portfolio of decisions that shape the cost and safety of future change. Diagrams remain useful, but only as maps. The architecture lives in the commitments, the evidence behind them, and the mechanisms that keep them honest.</p></article><aside class="card mt-8" aria-labelledby="research-connections" data-pagefind-ignore><h2 id="research-connections" class="text-xl font-semibold">Research connections</h2><div class="mt-4 grid gap-5 md:grid-cols-3"><section><h3 class="font-semibold">Related notes</h3><ul class="mt-2 list-disc space-y-1 ps-5"><li><a class="text-accent hover:underline" href="/posts/agentic-resource-discovery-needs-a-verification-boundary">Agentic Resource Discovery Still Needs a Verification Boundary</a></li><li><a class="text-accent hover:underline" href="/posts/choose-agent-infrastructure-by-the-first-constraint">Choose Agent Infrastructure by the First Constraint That Can Break It</a></li></ul></section></div></aside><hr class="my-8 border-dashed"><ul class="mt-4 mb-8 sm:my-8"><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"><a data-astro-transition-scope="astro-bztu2lml-2" href="/tags/software-architecture/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>&nbsp;<span>software-architecture</span></a></li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"><a data-astro-transition-scope="astro-bztu2lml-3" href="/tags/architecture-decisions/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>&nbsp;<span>architecture-decisions</span></a></li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"><a data-astro-transition-scope="astro-bztu2lml-4" href="/tags/evolutionary-architecture/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>&nbsp;<span>evolutionary-architecture</span></a></li><li class="group inline-block group-hover:cursor-pointer my-1 underline-offset-4"><a data-astro-transition-scope="astro-bztu2lml-5" href="/tags/software-design/" class="relative pe-2 text-lg underline decoration-dashed group-hover:-top-0.5 group-hover:text-accent focus-visible:p-1 focus-visible:no-underline text-sm"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 -me-3.5 size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg>&nbsp;<span>software-design</span></a></li></ul><div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"><button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"><span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span class="sr-only text-sm group-hover:text-accent md:not-sr-only"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>Back To Top</span></button></div><script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script><div class="flex flex-none flex-col items-center justify-center gap-2 md:items-start" data-share-links><span class="text-sm text-muted">Share this note</span><div class="flex items-center gap-2 text-center"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmetronforge.dev%2Fposts%2Farchitecture-is-the-set-of-decisions-that-constrain-change%2F" target="_blank" rel="noopener noreferrer" class="group inline-flex size-9 items-center justify-center rounded-md border border-border hover:border-accent hover:text-accent" title="Share this note on LinkedIn" aria-label="Share this note on LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 fill-transparent stroke-current stroke-2"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg></a><a href="https://t.me/share/url?url=https%3A%2F%2Fmetronforge.dev%2Fposts%2Farchitecture-is-the-set-of-decisions-that-constrain-change%2F" target="_blank" rel="noopener noreferrer" class="group inline-flex size-9 items-center justify-center rounded-md border border-border hover:border-accent hover:text-accent" title="Share this note via Telegram" aria-label="Share this note via Telegram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 fill-transparent stroke-current stroke-2"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg></a><button type="button" class="h-9 rounded-md border border-border px-3 text-sm hover:border-accent hover:text-accent" data-copy-link>Copy link</button><span class="sr-only" aria-live="polite" data-copy-status></span></div></div><script type="module">function e(){let e=document.querySelector(`[data-share-links]`),t=e?.querySelector(`[data-copy-link]`),n=e?.querySelector(`[data-copy-status]`);!t||t.dataset.ready===`true`||(t.dataset.ready=`true`,t.addEventListener(`click`,async()=>{await navigator.clipboard.writeText(window.location.href),t.textContent=`Copied`,n&&(n.textContent=`Link copied to clipboard`),window.setTimeout(()=>{t.textContent=`Copy link`,n&&(n.textContent=``)},1200)}))}e(),document.addEventListener(`astro:after-swap`,e);</script><hr class="my-6 border-dashed"><!-- Previous/Next Post Buttons --><div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2"><a href="/posts/property-based-testing-starts-with-the-property" class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"><div><span>Next Note</span><div class="text-sm text-accent/85">Property-Based Testing Starts with the Property, Not the Generator</div></div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg></a></div></main><footer class="w-full mt-auto"><div class="mx-auto max-w-app px-0"><hr class="border-border" aria-hidden="true"></div><div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"><div class="flex-wrap justify-center gap-1 flex"><a href="https://github.com/metronforge" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="MetronForge on GitHub"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg><span class="sr-only">MetronForge on GitHub</span></a><a href="https://www.linkedin.com/in/v-mikhalkin" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="MetronForge on LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg><span class="sr-only">MetronForge on LinkedIn</span></a><a href="mailto:viktormikhalkin@gmail.com" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Send an email to MetronForge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg><span class="sr-only">Send an email to MetronForge</span></a></div><div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"><span>Copyright &#169; 2026</span><span class="hidden sm:inline">&nbsp;|&nbsp;</span><span>All rights reserved.</span></div></div></footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;624f1fa5d546473eb75d6fe97747e793&quot;}"></script></body></html><script data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      // Check if --file-name-offset custom property exists
+      const computedStyle = getComputedStyle(codeBlock);
+      const hasFileNameOffset =
+        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
+
+      // Determine the top positioning class
+      const topClass = hasFileNameOffset
+        ? "top-(--file-name-offset)"
+        : "-top-3";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script>
