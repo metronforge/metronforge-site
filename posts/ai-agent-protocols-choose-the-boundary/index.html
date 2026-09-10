@@ -294,119 +294,16 @@
 <h2 id="why-a2a-needs-a-task-lifecycle">Why A2A needs a task lifecycle</h2>
 <p>A tool call is usually bounded: a request is sent, then a result or error returns. An autonomous agent may work for minutes or hours, request additional input, stream progress, and produce several artifacts.</p>
 <p>A2A therefore models a task as a first-class entity with an identifier and state.</p>
-<figure class="d2-diagram" role="img" aria-label="Simplified A2A task lifecycle"><div class="d2-diagram__light"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-d2-version="v0.7.0-HEAD" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1397 537"><svg class="d2-3074102143 d2-svg" width="1397" height="537" viewBox="-102 -97 1397 537"><rect x="-102.000000" y="-97.000000" width="1397.000000" height="537.000000" rx="0.000000" fill="#FFFFFF" class="fill-N7" stroke-width="0"></rect><style type="text/css">
-.d2-3074102143 .text-bold {
+<figure class="d2-diagram" role="img" aria-label="Simplified A2A task lifecycle"><div class="d2-diagram__light"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-d2-version="v0.7.0-HEAD" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1065 749"><svg class="d2-474496264 d2-svg" width="1065" height="749" viewBox="-85 -121 1065 749"><rect x="-85.000000" y="-121.000000" width="1065.000000" height="749.000000" rx="0.000000" fill="#FFFFFF" class="fill-N7" stroke-width="0"></rect><style type="text/css">
+.d2-474496264 .text {
 	font-family: var(--font-sans);
 }
 
-.d2-3074102143 .text-italic {
-	font-family: var(--font-sans);
-}
-</style><style type="text/css">.shape {
-  shape-rendering: geometricPrecision;
-  stroke-linejoin: round;
-}
-.connection {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.blend {
-  mix-blend-mode: multiply;
-  opacity: 0.5;
-}
-
-		.d2-3074102143 .fill-N1{fill:#0A0F25;}
-		.d2-3074102143 .fill-N2{fill:#676C7E;}
-		.d2-3074102143 .fill-N3{fill:#9499AB;}
-		.d2-3074102143 .fill-N4{fill:#CFD2DD;}
-		.d2-3074102143 .fill-N5{fill:#DEE1EB;}
-		.d2-3074102143 .fill-N6{fill:#EEF1F8;}
-		.d2-3074102143 .fill-N7{fill:#FFFFFF;}
-		.d2-3074102143 .fill-B1{fill:#0D32B2;}
-		.d2-3074102143 .fill-B2{fill:#0D32B2;}
-		.d2-3074102143 .fill-B3{fill:#E3E9FD;}
-		.d2-3074102143 .fill-B4{fill:#E3E9FD;}
-		.d2-3074102143 .fill-B5{fill:#EDF0FD;}
-		.d2-3074102143 .fill-B6{fill:#F7F8FE;}
-		.d2-3074102143 .fill-AA2{fill:#4A6FF3;}
-		.d2-3074102143 .fill-AA4{fill:#EDF0FD;}
-		.d2-3074102143 .fill-AA5{fill:#F7F8FE;}
-		.d2-3074102143 .fill-AB4{fill:#EDF0FD;}
-		.d2-3074102143 .fill-AB5{fill:#F7F8FE;}
-		.d2-3074102143 .stroke-N1{stroke:#0A0F25;}
-		.d2-3074102143 .stroke-N2{stroke:#676C7E;}
-		.d2-3074102143 .stroke-N3{stroke:#9499AB;}
-		.d2-3074102143 .stroke-N4{stroke:#CFD2DD;}
-		.d2-3074102143 .stroke-N5{stroke:#DEE1EB;}
-		.d2-3074102143 .stroke-N6{stroke:#EEF1F8;}
-		.d2-3074102143 .stroke-N7{stroke:#FFFFFF;}
-		.d2-3074102143 .stroke-B1{stroke:#0D32B2;}
-		.d2-3074102143 .stroke-B2{stroke:#0D32B2;}
-		.d2-3074102143 .stroke-B3{stroke:#E3E9FD;}
-		.d2-3074102143 .stroke-B4{stroke:#E3E9FD;}
-		.d2-3074102143 .stroke-B5{stroke:#EDF0FD;}
-		.d2-3074102143 .stroke-B6{stroke:#F7F8FE;}
-		.d2-3074102143 .stroke-AA2{stroke:#4A6FF3;}
-		.d2-3074102143 .stroke-AA4{stroke:#EDF0FD;}
-		.d2-3074102143 .stroke-AA5{stroke:#F7F8FE;}
-		.d2-3074102143 .stroke-AB4{stroke:#EDF0FD;}
-		.d2-3074102143 .stroke-AB5{stroke:#F7F8FE;}
-		.d2-3074102143 .background-color-N1{background-color:#0A0F25;}
-		.d2-3074102143 .background-color-N2{background-color:#676C7E;}
-		.d2-3074102143 .background-color-N3{background-color:#9499AB;}
-		.d2-3074102143 .background-color-N4{background-color:#CFD2DD;}
-		.d2-3074102143 .background-color-N5{background-color:#DEE1EB;}
-		.d2-3074102143 .background-color-N6{background-color:#EEF1F8;}
-		.d2-3074102143 .background-color-N7{background-color:#FFFFFF;}
-		.d2-3074102143 .background-color-B1{background-color:#0D32B2;}
-		.d2-3074102143 .background-color-B2{background-color:#0D32B2;}
-		.d2-3074102143 .background-color-B3{background-color:#E3E9FD;}
-		.d2-3074102143 .background-color-B4{background-color:#E3E9FD;}
-		.d2-3074102143 .background-color-B5{background-color:#EDF0FD;}
-		.d2-3074102143 .background-color-B6{background-color:#F7F8FE;}
-		.d2-3074102143 .background-color-AA2{background-color:#4A6FF3;}
-		.d2-3074102143 .background-color-AA4{background-color:#EDF0FD;}
-		.d2-3074102143 .background-color-AA5{background-color:#F7F8FE;}
-		.d2-3074102143 .background-color-AB4{background-color:#EDF0FD;}
-		.d2-3074102143 .background-color-AB5{background-color:#F7F8FE;}
-		.d2-3074102143 .color-N1{color:#0A0F25;}
-		.d2-3074102143 .color-N2{color:#676C7E;}
-		.d2-3074102143 .color-N3{color:#9499AB;}
-		.d2-3074102143 .color-N4{color:#CFD2DD;}
-		.d2-3074102143 .color-N5{color:#DEE1EB;}
-		.d2-3074102143 .color-N6{color:#EEF1F8;}
-		.d2-3074102143 .color-N7{color:#FFFFFF;}
-		.d2-3074102143 .color-B1{color:#0D32B2;}
-		.d2-3074102143 .color-B2{color:#0D32B2;}
-		.d2-3074102143 .color-B3{color:#E3E9FD;}
-		.d2-3074102143 .color-B4{color:#E3E9FD;}
-		.d2-3074102143 .color-B5{color:#EDF0FD;}
-		.d2-3074102143 .color-B6{color:#F7F8FE;}
-		.d2-3074102143 .color-AA2{color:#4A6FF3;}
-		.d2-3074102143 .color-AA4{color:#EDF0FD;}
-		.d2-3074102143 .color-AA5{color:#F7F8FE;}
-		.d2-3074102143 .color-AB4{color:#EDF0FD;}
-		.d2-3074102143 .color-AB5{color:#F7F8FE;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0D32B2;--color-border-muted:#0D32B2;--color-neutral-muted:#EEF1F8;--color-accent-fg:#0D32B2;--color-accent-emphasis:#0D32B2;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker-d2-3074102143);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-darker-d2-3074102143);mix-blend-mode:lighten}.sketch-overlay-B3{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.sketch-overlay-B4{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.sketch-overlay-B5{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark-d2-3074102143);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.sketch-overlay-AA5{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.sketch-overlay-AB5{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker-d2-3074102143);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark-d2-3074102143);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal-d2-3074102143);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal-d2-3074102143);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright-d2-3074102143);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}</style><defs>
-	<filter id="shadow-filter" width="200%" height="200%" x="-50%" y="-50%">
-		<feGaussianBlur stdDeviation="1.7 " in="SourceGraphic"></feGaussianBlur>
-		<feFlood flood-color="#3d4574" flood-opacity="0.4" result="ShadowFeFlood" in="SourceGraphic"></feFlood>
-		<feComposite in="ShadowFeFlood" in2="SourceAlpha" operator="in" result="ShadowFeComposite"></feComposite>
-		<feOffset dx="3" dy="5" result="ShadowFeOffset" in="ShadowFeComposite"></feOffset>
-		<feBlend in="SourceGraphic" in2="ShadowFeOffset" mode="normal" result="ShadowFeBlend"></feBlend>
-	</filter>
-</defs><g class="c3VibWl0dGVk"><g class="shape"><ellipse rx="83.500000" ry="28.000000" cx="83.500000" cy="160.000000" stroke="#4F46E5" fill="#E0E7FF" class="shape" style="stroke-width:3;"></ellipse></g><text x="83.500000" y="165.500000" fill="#312E81" class="text-bold" style="text-anchor:middle;font-size:16px">Submitted</text></g><g class="d29ya2luZw=="><g class="shape" filter="url(#shadow-filter)"><path d="M 487 126 L 455 160 L 487 195 L 551 195 L 583 160 L 551 126 Z" stroke="#D97706" fill="#FEF3C7" style="stroke-width:3;"></path></g><text x="519.000000" y="166.000000" fill="#78350F" class="text-bold" style="text-anchor:middle;font-size:16px">Working</text></g><g class="aW5wdXQ="><g class="shape"><path d="M 1076 97 C 1075 97 1074 97 1074 97 L 960 52 C 959 52 959 51 960 50 L 1074 5 C 1075 5 1077 5 1078 5 L 1192 50 C 1193 50 1193 51 1192 52 L 1078 97 C 1078 97 1077 97 1076 97 Z" stroke="#EA580C" fill="#FFEDD5" style="stroke-width:3;"></path></g><text x="1076.000000" y="56.500000" fill="#7C2D12" class="text-bold" style="text-anchor:middle;font-size:16px">Input required</text></g><g class="Y29tcGxldGVk"><g class="shape"><ellipse rx="86.000000" ry="28.500000" cx="1076.000000" cy="185.500000" stroke="#16A34A" fill="#DCFCE7" class="shape" style="stroke-width:3;"></ellipse><ellipse rx="81.000000" ry="23.500000" cx="1076.000000" cy="185.500000" stroke="#16A34A" fill="#DCFCE7" class="shape" style="stroke-width:3;"></ellipse></g><text x="1076.000000" y="191.000000" fill="#14532D" class="text-bold" style="text-anchor:middle;font-size:16px">Completed</text></g><g class="ZmFpbGVk"><g class="shape"><ellipse rx="59.000000" ry="32.000000" cx="1076.000000" cy="306.000000" stroke="#DC2626" fill="#FEE2E2" class="shape" style="stroke-width:3;"></ellipse><ellipse rx="54.000000" ry="27.000000" cx="1076.000000" cy="306.000000" stroke="#DC2626" fill="#FEE2E2" class="shape" style="stroke-width:3;"></ellipse></g><text x="1076.000000" y="311.500000" fill="#7F1D1D" class="text-bold" style="text-anchor:middle;font-size:16px">Failed</text></g><g class="KHN1Ym1pdHRlZCAtJmd0OyB3b3JraW5nKVswXQ=="><marker id="mk-d2-3074102143-2490716011" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#4F46E5" class="connection" stroke-width="3"></polygon> </marker><path d="M 170.000000 160.000000 C 282.200012 160.000000 339.799988 160.000000 449.000000 160.000000" stroke="#4F46E5" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-3074102143-2490716011)" mask="url(#d2-3074102143)"></path><text x="311.000000" y="166.000000" fill="#676C7E" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">agent starts</text></g><g class="KHdvcmtpbmcgLSZndDsgaW5wdXQpWzBd"><marker id="mk-d2-3074102143-3012685603" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#EA580C" class="connection" stroke-width="3"></polygon> </marker><path d="M 563.623355 135.544662 C 729.000000 43.799999 813.000000 24.799999 975.031201 41.388909" stroke="#EA580C" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-3074102143-3012685603)" mask="url(#d2-3074102143)"></path><text x="760.000000" y="42.000000" fill="#676C7E" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">more information needed</text></g><g class="KGlucHV0IC0mZ3Q7IHdvcmtpbmcpWzBd"><marker id="mk-d2-3074102143-4260110530" markerWidth="10.000000" markerHeight="12.000000" refX="7.000000" refY="6.000000" viewBox="0.000000 0.000000 10.000000 12.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 10.000000,6.000000 0.000000,12.000000" fill="#EA580C" class="connection" stroke-width="2"></polygon> </marker><path d="M 984.523380 63.341109 C 814.200012 86.800003 730.799988 103.400002 574.349937 144.847591" stroke="#EA580C" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:10.000000,9.865639;" marker-end="url(#mk-d2-3074102143-4260110530)" mask="url(#d2-3074102143)"></path><text x="776.000000" y="100.000000" fill="#676C7E" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">input received</text></g><g class="KHdvcmtpbmcgLSZndDsgY29tcGxldGVkKVswXQ=="><marker id="mk-d2-3074102143-3357447413" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#16A34A" class="connection" stroke-width="3"></polygon> </marker><path d="M 580.984804 166.301574 C 732.400024 181.600006 814.799988 185.600006 984.000016 185.986302" stroke="#16A34A" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-3074102143-3357447413)" mask="url(#d2-3074102143)"></path><text x="783.500000" y="190.000000" fill="#676C7E" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">result ready</text></g><g class="KHdvcmtpbmcgLSZndDsgZmFpbGVkKVswXQ=="><marker id="mk-d2-3074102143-3432949298" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#DC2626" class="connection" stroke-width="3"></polygon> </marker><path d="M 563.599381 186.497738 C 729.000000 281.799988 820.200012 306.000000 1011.000000 306.000000" stroke="#DC2626" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-3074102143-3432949298)" mask="url(#d2-3074102143)"></path><text x="776.500000" y="300.000000" fill="#676C7E" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">cannot complete</text></g><mask id="d2-3074102143" maskUnits="userSpaceOnUse" x="-102" y="-97" width="1397" height="537">
-<rect x="-102" y="-97" width="1397" height="537" fill="white"></rect>
-<rect x="269.000000" y="150.000000" width="84" height="21" fill="black"></rect>
-<rect x="674.000000" y="26.000000" width="172" height="21" fill="black"></rect>
-<rect x="727.000000" y="84.000000" width="98" height="21" fill="black"></rect>
-<rect x="742.000000" y="174.000000" width="83" height="21" fill="black"></rect>
-<rect x="719.000000" y="284.000000" width="115" height="21" fill="black"></rect>
-</mask></svg></svg></div><div class="d2-diagram__dark"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-d2-version="v0.7.0-HEAD" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1397 537"><svg class="d2-2314716917 d2-svg" width="1397" height="537" viewBox="-102 -97 1397 537"><rect x="-102.000000" y="-97.000000" width="1397.000000" height="537.000000" rx="0.000000" fill="#1E1E2E" class="fill-N7" stroke-width="0"></rect><style type="text/css">
-.d2-2314716917 .text-bold {
+.d2-474496264 .text-bold {
 	font-family: var(--font-sans);
 }
 
-.d2-2314716917 .text-italic {
+.d2-474496264 .text-italic {
 	font-family: var(--font-sans);
 }
 </style><style type="text/css">.shape {
@@ -422,78 +319,78 @@
   opacity: 0.5;
 }
 
-		.d2-2314716917 .fill-N1{fill:#CDD6F4;}
-		.d2-2314716917 .fill-N2{fill:#BAC2DE;}
-		.d2-2314716917 .fill-N3{fill:#A6ADC8;}
-		.d2-2314716917 .fill-N4{fill:#585B70;}
-		.d2-2314716917 .fill-N5{fill:#45475A;}
-		.d2-2314716917 .fill-N6{fill:#313244;}
-		.d2-2314716917 .fill-N7{fill:#1E1E2E;}
-		.d2-2314716917 .fill-B1{fill:#CBA6f7;}
-		.d2-2314716917 .fill-B2{fill:#CBA6f7;}
-		.d2-2314716917 .fill-B3{fill:#6C7086;}
-		.d2-2314716917 .fill-B4{fill:#585B70;}
-		.d2-2314716917 .fill-B5{fill:#45475A;}
-		.d2-2314716917 .fill-B6{fill:#313244;}
-		.d2-2314716917 .fill-AA2{fill:#f38BA8;}
-		.d2-2314716917 .fill-AA4{fill:#45475A;}
-		.d2-2314716917 .fill-AA5{fill:#313244;}
-		.d2-2314716917 .fill-AB4{fill:#45475A;}
-		.d2-2314716917 .fill-AB5{fill:#313244;}
-		.d2-2314716917 .stroke-N1{stroke:#CDD6F4;}
-		.d2-2314716917 .stroke-N2{stroke:#BAC2DE;}
-		.d2-2314716917 .stroke-N3{stroke:#A6ADC8;}
-		.d2-2314716917 .stroke-N4{stroke:#585B70;}
-		.d2-2314716917 .stroke-N5{stroke:#45475A;}
-		.d2-2314716917 .stroke-N6{stroke:#313244;}
-		.d2-2314716917 .stroke-N7{stroke:#1E1E2E;}
-		.d2-2314716917 .stroke-B1{stroke:#CBA6f7;}
-		.d2-2314716917 .stroke-B2{stroke:#CBA6f7;}
-		.d2-2314716917 .stroke-B3{stroke:#6C7086;}
-		.d2-2314716917 .stroke-B4{stroke:#585B70;}
-		.d2-2314716917 .stroke-B5{stroke:#45475A;}
-		.d2-2314716917 .stroke-B6{stroke:#313244;}
-		.d2-2314716917 .stroke-AA2{stroke:#f38BA8;}
-		.d2-2314716917 .stroke-AA4{stroke:#45475A;}
-		.d2-2314716917 .stroke-AA5{stroke:#313244;}
-		.d2-2314716917 .stroke-AB4{stroke:#45475A;}
-		.d2-2314716917 .stroke-AB5{stroke:#313244;}
-		.d2-2314716917 .background-color-N1{background-color:#CDD6F4;}
-		.d2-2314716917 .background-color-N2{background-color:#BAC2DE;}
-		.d2-2314716917 .background-color-N3{background-color:#A6ADC8;}
-		.d2-2314716917 .background-color-N4{background-color:#585B70;}
-		.d2-2314716917 .background-color-N5{background-color:#45475A;}
-		.d2-2314716917 .background-color-N6{background-color:#313244;}
-		.d2-2314716917 .background-color-N7{background-color:#1E1E2E;}
-		.d2-2314716917 .background-color-B1{background-color:#CBA6f7;}
-		.d2-2314716917 .background-color-B2{background-color:#CBA6f7;}
-		.d2-2314716917 .background-color-B3{background-color:#6C7086;}
-		.d2-2314716917 .background-color-B4{background-color:#585B70;}
-		.d2-2314716917 .background-color-B5{background-color:#45475A;}
-		.d2-2314716917 .background-color-B6{background-color:#313244;}
-		.d2-2314716917 .background-color-AA2{background-color:#f38BA8;}
-		.d2-2314716917 .background-color-AA4{background-color:#45475A;}
-		.d2-2314716917 .background-color-AA5{background-color:#313244;}
-		.d2-2314716917 .background-color-AB4{background-color:#45475A;}
-		.d2-2314716917 .background-color-AB5{background-color:#313244;}
-		.d2-2314716917 .color-N1{color:#CDD6F4;}
-		.d2-2314716917 .color-N2{color:#BAC2DE;}
-		.d2-2314716917 .color-N3{color:#A6ADC8;}
-		.d2-2314716917 .color-N4{color:#585B70;}
-		.d2-2314716917 .color-N5{color:#45475A;}
-		.d2-2314716917 .color-N6{color:#313244;}
-		.d2-2314716917 .color-N7{color:#1E1E2E;}
-		.d2-2314716917 .color-B1{color:#CBA6f7;}
-		.d2-2314716917 .color-B2{color:#CBA6f7;}
-		.d2-2314716917 .color-B3{color:#6C7086;}
-		.d2-2314716917 .color-B4{color:#585B70;}
-		.d2-2314716917 .color-B5{color:#45475A;}
-		.d2-2314716917 .color-B6{color:#313244;}
-		.d2-2314716917 .color-AA2{color:#f38BA8;}
-		.d2-2314716917 .color-AA4{color:#45475A;}
-		.d2-2314716917 .color-AA5{color:#313244;}
-		.d2-2314716917 .color-AB4{color:#45475A;}
-		.d2-2314716917 .color-AB5{color:#313244;}.appendix text.text{fill:#CDD6F4}.md{--color-fg-default:#CDD6F4;--color-fg-muted:#BAC2DE;--color-fg-subtle:#A6ADC8;--color-canvas-default:#1E1E2E;--color-canvas-subtle:#313244;--color-border-default:#CBA6f7;--color-border-muted:#CBA6f7;--color-neutral-muted:#313244;--color-accent-fg:#CBA6f7;--color-accent-emphasis:#CBA6f7;--color-attention-subtle:#BAC2DE;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-normal-d2-2314716917);mix-blend-mode:color-burn}.sketch-overlay-B2{fill:url(#streaks-normal-d2-2314716917);mix-blend-mode:color-burn}.sketch-overlay-B3{fill:url(#streaks-dark-d2-2314716917);mix-blend-mode:overlay}.sketch-overlay-B4{fill:url(#streaks-dark-d2-2314716917);mix-blend-mode:overlay}.sketch-overlay-B5{fill:url(#streaks-darker-d2-2314716917);mix-blend-mode:lighten}.sketch-overlay-B6{fill:url(#streaks-darker-d2-2314716917);mix-blend-mode:lighten}.sketch-overlay-AA2{fill:url(#streaks-normal-d2-2314716917);mix-blend-mode:color-burn}.sketch-overlay-AA4{fill:url(#streaks-darker-d2-2314716917);mix-blend-mode:lighten}.sketch-overlay-AA5{fill:url(#streaks-darker-d2-2314716917);mix-blend-mode:lighten}.sketch-overlay-AB4{fill:url(#streaks-darker-d2-2314716917);mix-blend-mode:lighten}.sketch-overlay-AB5{fill:url(#streaks-darker-d2-2314716917);mix-blend-mode:lighten}.sketch-overlay-N1{fill:url(#streaks-normal-d2-2314716917);mix-blend-mode:color-burn}.sketch-overlay-N2{fill:url(#streaks-normal-d2-2314716917);mix-blend-mode:color-burn}.sketch-overlay-N3{fill:url(#streaks-normal-d2-2314716917);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-dark-d2-2314716917);mix-blend-mode:overlay}.sketch-overlay-N5{fill:url(#streaks-darker-d2-2314716917);mix-blend-mode:lighten}.sketch-overlay-N6{fill:url(#streaks-darker-d2-2314716917);mix-blend-mode:lighten}.sketch-overlay-N7{fill:url(#streaks-darker-d2-2314716917);mix-blend-mode:lighten}.light-code{display: none}.dark-code{display: block}</style><defs>
+		.d2-474496264 .fill-N1{fill:#0A0F25;}
+		.d2-474496264 .fill-N2{fill:#676C7E;}
+		.d2-474496264 .fill-N3{fill:#9499AB;}
+		.d2-474496264 .fill-N4{fill:#CFD2DD;}
+		.d2-474496264 .fill-N5{fill:#DEE1EB;}
+		.d2-474496264 .fill-N6{fill:#EEF1F8;}
+		.d2-474496264 .fill-N7{fill:#FFFFFF;}
+		.d2-474496264 .fill-B1{fill:#0D32B2;}
+		.d2-474496264 .fill-B2{fill:#0D32B2;}
+		.d2-474496264 .fill-B3{fill:#E3E9FD;}
+		.d2-474496264 .fill-B4{fill:#E3E9FD;}
+		.d2-474496264 .fill-B5{fill:#EDF0FD;}
+		.d2-474496264 .fill-B6{fill:#F7F8FE;}
+		.d2-474496264 .fill-AA2{fill:#4A6FF3;}
+		.d2-474496264 .fill-AA4{fill:#EDF0FD;}
+		.d2-474496264 .fill-AA5{fill:#F7F8FE;}
+		.d2-474496264 .fill-AB4{fill:#EDF0FD;}
+		.d2-474496264 .fill-AB5{fill:#F7F8FE;}
+		.d2-474496264 .stroke-N1{stroke:#0A0F25;}
+		.d2-474496264 .stroke-N2{stroke:#676C7E;}
+		.d2-474496264 .stroke-N3{stroke:#9499AB;}
+		.d2-474496264 .stroke-N4{stroke:#CFD2DD;}
+		.d2-474496264 .stroke-N5{stroke:#DEE1EB;}
+		.d2-474496264 .stroke-N6{stroke:#EEF1F8;}
+		.d2-474496264 .stroke-N7{stroke:#FFFFFF;}
+		.d2-474496264 .stroke-B1{stroke:#0D32B2;}
+		.d2-474496264 .stroke-B2{stroke:#0D32B2;}
+		.d2-474496264 .stroke-B3{stroke:#E3E9FD;}
+		.d2-474496264 .stroke-B4{stroke:#E3E9FD;}
+		.d2-474496264 .stroke-B5{stroke:#EDF0FD;}
+		.d2-474496264 .stroke-B6{stroke:#F7F8FE;}
+		.d2-474496264 .stroke-AA2{stroke:#4A6FF3;}
+		.d2-474496264 .stroke-AA4{stroke:#EDF0FD;}
+		.d2-474496264 .stroke-AA5{stroke:#F7F8FE;}
+		.d2-474496264 .stroke-AB4{stroke:#EDF0FD;}
+		.d2-474496264 .stroke-AB5{stroke:#F7F8FE;}
+		.d2-474496264 .background-color-N1{background-color:#0A0F25;}
+		.d2-474496264 .background-color-N2{background-color:#676C7E;}
+		.d2-474496264 .background-color-N3{background-color:#9499AB;}
+		.d2-474496264 .background-color-N4{background-color:#CFD2DD;}
+		.d2-474496264 .background-color-N5{background-color:#DEE1EB;}
+		.d2-474496264 .background-color-N6{background-color:#EEF1F8;}
+		.d2-474496264 .background-color-N7{background-color:#FFFFFF;}
+		.d2-474496264 .background-color-B1{background-color:#0D32B2;}
+		.d2-474496264 .background-color-B2{background-color:#0D32B2;}
+		.d2-474496264 .background-color-B3{background-color:#E3E9FD;}
+		.d2-474496264 .background-color-B4{background-color:#E3E9FD;}
+		.d2-474496264 .background-color-B5{background-color:#EDF0FD;}
+		.d2-474496264 .background-color-B6{background-color:#F7F8FE;}
+		.d2-474496264 .background-color-AA2{background-color:#4A6FF3;}
+		.d2-474496264 .background-color-AA4{background-color:#EDF0FD;}
+		.d2-474496264 .background-color-AA5{background-color:#F7F8FE;}
+		.d2-474496264 .background-color-AB4{background-color:#EDF0FD;}
+		.d2-474496264 .background-color-AB5{background-color:#F7F8FE;}
+		.d2-474496264 .color-N1{color:#0A0F25;}
+		.d2-474496264 .color-N2{color:#676C7E;}
+		.d2-474496264 .color-N3{color:#9499AB;}
+		.d2-474496264 .color-N4{color:#CFD2DD;}
+		.d2-474496264 .color-N5{color:#DEE1EB;}
+		.d2-474496264 .color-N6{color:#EEF1F8;}
+		.d2-474496264 .color-N7{color:#FFFFFF;}
+		.d2-474496264 .color-B1{color:#0D32B2;}
+		.d2-474496264 .color-B2{color:#0D32B2;}
+		.d2-474496264 .color-B3{color:#E3E9FD;}
+		.d2-474496264 .color-B4{color:#E3E9FD;}
+		.d2-474496264 .color-B5{color:#EDF0FD;}
+		.d2-474496264 .color-B6{color:#F7F8FE;}
+		.d2-474496264 .color-AA2{color:#4A6FF3;}
+		.d2-474496264 .color-AA4{color:#EDF0FD;}
+		.d2-474496264 .color-AA5{color:#F7F8FE;}
+		.d2-474496264 .color-AB4{color:#EDF0FD;}
+		.d2-474496264 .color-AB5{color:#F7F8FE;}.appendix text.text{fill:#0A0F25}.md{--color-fg-default:#0A0F25;--color-fg-muted:#676C7E;--color-fg-subtle:#9499AB;--color-canvas-default:#FFFFFF;--color-canvas-subtle:#EEF1F8;--color-border-default:#0D32B2;--color-border-muted:#0D32B2;--color-neutral-muted:#EEF1F8;--color-accent-fg:#0D32B2;--color-accent-emphasis:#0D32B2;--color-attention-subtle:#676C7E;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-darker-d2-474496264);mix-blend-mode:lighten}.sketch-overlay-B2{fill:url(#streaks-darker-d2-474496264);mix-blend-mode:lighten}.sketch-overlay-B3{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.sketch-overlay-B4{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.sketch-overlay-B5{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.sketch-overlay-B6{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.sketch-overlay-AA2{fill:url(#streaks-dark-d2-474496264);mix-blend-mode:overlay}.sketch-overlay-AA4{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.sketch-overlay-AA5{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.sketch-overlay-AB4{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.sketch-overlay-AB5{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.sketch-overlay-N1{fill:url(#streaks-darker-d2-474496264);mix-blend-mode:lighten}.sketch-overlay-N2{fill:url(#streaks-dark-d2-474496264);mix-blend-mode:overlay}.sketch-overlay-N3{fill:url(#streaks-normal-d2-474496264);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-normal-d2-474496264);mix-blend-mode:color-burn}.sketch-overlay-N5{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.sketch-overlay-N6{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.sketch-overlay-N7{fill:url(#streaks-bright-d2-474496264);mix-blend-mode:darken}.light-code{display: block}.dark-code{display: none}</style><defs>
 	<filter id="shadow-filter" width="200%" height="200%" x="-50%" y="-50%">
 		<feGaussianBlur stdDeviation="1.7 " in="SourceGraphic"></feGaussianBlur>
 		<feFlood flood-color="#3d4574" flood-opacity="0.4" result="ShadowFeFlood" in="SourceGraphic"></feFlood>
@@ -501,13 +398,124 @@
 		<feOffset dx="3" dy="5" result="ShadowFeOffset" in="ShadowFeComposite"></feOffset>
 		<feBlend in="SourceGraphic" in2="ShadowFeOffset" mode="normal" result="ShadowFeBlend"></feBlend>
 	</filter>
-</defs><g class="c3VibWl0dGVk"><g class="shape"><ellipse rx="83.500000" ry="28.000000" cx="83.500000" cy="160.000000" stroke="#4F46E5" fill="#E0E7FF" class="shape" style="stroke-width:3;"></ellipse></g><text x="83.500000" y="165.500000" fill="#312E81" class="text-bold" style="text-anchor:middle;font-size:16px">Submitted</text></g><g class="d29ya2luZw=="><g class="shape" filter="url(#shadow-filter)"><path d="M 487 126 L 455 160 L 487 195 L 551 195 L 583 160 L 551 126 Z" stroke="#D97706" fill="#FEF3C7" style="stroke-width:3;"></path></g><text x="519.000000" y="166.000000" fill="#78350F" class="text-bold" style="text-anchor:middle;font-size:16px">Working</text></g><g class="aW5wdXQ="><g class="shape"><path d="M 1076 97 C 1075 97 1074 97 1074 97 L 960 52 C 959 52 959 51 960 50 L 1074 5 C 1075 5 1077 5 1078 5 L 1192 50 C 1193 50 1193 51 1192 52 L 1078 97 C 1078 97 1077 97 1076 97 Z" stroke="#EA580C" fill="#FFEDD5" style="stroke-width:3;"></path></g><text x="1076.000000" y="56.500000" fill="#7C2D12" class="text-bold" style="text-anchor:middle;font-size:16px">Input required</text></g><g class="Y29tcGxldGVk"><g class="shape"><ellipse rx="86.000000" ry="28.500000" cx="1076.000000" cy="185.500000" stroke="#16A34A" fill="#DCFCE7" class="shape" style="stroke-width:3;"></ellipse><ellipse rx="81.000000" ry="23.500000" cx="1076.000000" cy="185.500000" stroke="#16A34A" fill="#DCFCE7" class="shape" style="stroke-width:3;"></ellipse></g><text x="1076.000000" y="191.000000" fill="#14532D" class="text-bold" style="text-anchor:middle;font-size:16px">Completed</text></g><g class="ZmFpbGVk"><g class="shape"><ellipse rx="59.000000" ry="32.000000" cx="1076.000000" cy="306.000000" stroke="#DC2626" fill="#FEE2E2" class="shape" style="stroke-width:3;"></ellipse><ellipse rx="54.000000" ry="27.000000" cx="1076.000000" cy="306.000000" stroke="#DC2626" fill="#FEE2E2" class="shape" style="stroke-width:3;"></ellipse></g><text x="1076.000000" y="311.500000" fill="#7F1D1D" class="text-bold" style="text-anchor:middle;font-size:16px">Failed</text></g><g class="KHN1Ym1pdHRlZCAtJmd0OyB3b3JraW5nKVswXQ=="><marker id="mk-d2-2314716917-2490716011" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#4F46E5" class="connection" stroke-width="3"></polygon> </marker><path d="M 170.000000 160.000000 C 282.200012 160.000000 339.799988 160.000000 449.000000 160.000000" stroke="#4F46E5" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-2314716917-2490716011)" mask="url(#d2-2314716917)"></path><text x="311.000000" y="166.000000" fill="#BAC2DE" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">agent starts</text></g><g class="KHdvcmtpbmcgLSZndDsgaW5wdXQpWzBd"><marker id="mk-d2-2314716917-3012685603" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#EA580C" class="connection" stroke-width="3"></polygon> </marker><path d="M 563.623355 135.544662 C 729.000000 43.799999 813.000000 24.799999 975.031201 41.388909" stroke="#EA580C" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-2314716917-3012685603)" mask="url(#d2-2314716917)"></path><text x="760.000000" y="42.000000" fill="#BAC2DE" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">more information needed</text></g><g class="KGlucHV0IC0mZ3Q7IHdvcmtpbmcpWzBd"><marker id="mk-d2-2314716917-4260110530" markerWidth="10.000000" markerHeight="12.000000" refX="7.000000" refY="6.000000" viewBox="0.000000 0.000000 10.000000 12.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 10.000000,6.000000 0.000000,12.000000" fill="#EA580C" class="connection" stroke-width="2"></polygon> </marker><path d="M 984.523380 63.341109 C 814.200012 86.800003 730.799988 103.400002 574.349937 144.847591" stroke="#EA580C" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:10.000000,9.865639;" marker-end="url(#mk-d2-2314716917-4260110530)" mask="url(#d2-2314716917)"></path><text x="776.000000" y="100.000000" fill="#BAC2DE" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">input received</text></g><g class="KHdvcmtpbmcgLSZndDsgY29tcGxldGVkKVswXQ=="><marker id="mk-d2-2314716917-3357447413" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#16A34A" class="connection" stroke-width="3"></polygon> </marker><path d="M 580.984804 166.301574 C 732.400024 181.600006 814.799988 185.600006 984.000016 185.986302" stroke="#16A34A" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-2314716917-3357447413)" mask="url(#d2-2314716917)"></path><text x="783.500000" y="190.000000" fill="#BAC2DE" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">result ready</text></g><g class="KHdvcmtpbmcgLSZndDsgZmFpbGVkKVswXQ=="><marker id="mk-d2-2314716917-3432949298" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#DC2626" class="connection" stroke-width="3"></polygon> </marker><path d="M 563.599381 186.497738 C 729.000000 281.799988 820.200012 306.000000 1011.000000 306.000000" stroke="#DC2626" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-2314716917-3432949298)" mask="url(#d2-2314716917)"></path><text x="776.500000" y="300.000000" fill="#BAC2DE" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">cannot complete</text></g><mask id="d2-2314716917" maskUnits="userSpaceOnUse" x="-102" y="-97" width="1397" height="537">
-<rect x="-102" y="-97" width="1397" height="537" fill="white"></rect>
-<rect x="269.000000" y="150.000000" width="84" height="21" fill="black"></rect>
-<rect x="674.000000" y="26.000000" width="172" height="21" fill="black"></rect>
-<rect x="727.000000" y="84.000000" width="98" height="21" fill="black"></rect>
-<rect x="742.000000" y="174.000000" width="83" height="21" fill="black"></rect>
-<rect x="719.000000" y="284.000000" width="115" height="21" fill="black"></rect>
+</defs><g class="bGlmZWN5Y2xl"><g class="shape" filter="url(#shadow-filter)"><rect x="16.000000" y="20.000000" width="860.000000" height="502.000000" rx="16.000000" stroke="#60A5FA" fill="#EFF6FF" style="stroke-width:2;"></rect></g><text x="446.000000" y="7.000000" fill="#0A0F25" class="text fill-N1" style="text-anchor:middle;font-size:28px">A2A task lifecycle</text></g><g class="bGlmZWN5Y2xlLnN1Ym1pdHRlZA=="><g class="shape"><rect x="296.000000" y="50.000000" width="240.000000" height="64.000000" rx="12.000000" stroke="#2563EB" fill="#DBEAFE" style="stroke-width:2;"></rect></g><text x="416.000000" y="87.500000" fill="#1E3A8A" class="text-bold" style="text-anchor:middle;font-size:16px">Submitted</text></g><g class="bGlmZWN5Y2xlLndvcmtpbmc="><g class="shape" filter="url(#shadow-filter)"><path d="M 356 235 L 296 271 L 356 307 L 476 307 L 536 271 L 476 235 Z" stroke="#D97706" fill="#FEF3C7" style="stroke-width:3;"></path></g><text x="416.000000" y="276.500000" fill="#78350F" class="text-bold" style="text-anchor:middle;font-size:16px">Working</text></g><g class="bGlmZWN5Y2xlLmlucHV0"><g class="shape"><rect x="46.000000" y="428.000000" width="240.000000" height="64.000000" rx="12.000000" stroke="#2563EB" fill="#DBEAFE" style="stroke-width:2;"></rect></g><text x="166.000000" y="465.500000" fill="#1E3A8A" class="text-bold" style="text-anchor:middle;font-size:16px">Input required</text></g><g class="bGlmZWN5Y2xlLmNvbXBsZXRlZA=="><g class="shape"><rect x="346.000000" y="428.000000" width="220.000000" height="64.000000" rx="12.000000" stroke="#059669" fill="#D1FAE5" style="stroke-width:2;"></rect></g><text x="456.000000" y="465.500000" fill="#064E3B" class="text-bold" style="text-anchor:middle;font-size:16px">Completed</text></g><g class="bGlmZWN5Y2xlLmZhaWxlZA=="><g class="shape"><rect x="626.000000" y="428.000000" width="220.000000" height="64.000000" rx="12.000000" stroke="#DC2626" fill="#FEE2E2" style="stroke-width:2;"></rect></g><text x="736.000000" y="465.500000" fill="#7F1D1D" class="text-bold" style="text-anchor:middle;font-size:16px">Failed</text></g><g class="bGlmZWN5Y2xlLihzdWJtaXR0ZWQgLSZndDsgd29ya2luZylbMF0="><marker id="mk-d2-474496264-3434333728" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#7C3AED" class="connection" stroke-width="3"></polygon> </marker><path d="M 416.250000 116.000000 C 416.250000 162.300003 416.200012 186.600006 416.024795 229.000051" stroke="#7C3AED" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-474496264-3434333728)" mask="url(#d2-474496264)"></path><text x="416.500000" y="180.000000" fill="#676C7E" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">start</text></g><g class="bGlmZWN5Y2xlLih3b3JraW5nIC0mZ3Q7IGlucHV0KVswXQ=="><path d="M 334.143848 296.917820 C 159.000000 353.200012 121.300003 379.700012 145.822279 423.695855" stroke="#7C3AED" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-474496264-3434333728)" mask="url(#d2-474496264)"></path><text x="199.000000" y="346.000000" fill="#676C7E" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">needs input</text></g><g class="bGlmZWN5Y2xlLihpbnB1dCAtJmd0OyB3b3JraW5nKVswXQ=="><marker id="mk-d2-474496264-1795641005" markerWidth="10.000000" markerHeight="12.000000" refX="7.000000" refY="6.000000" viewBox="0.000000 0.000000 10.000000 12.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 10.000000,6.000000 0.000000,12.000000" fill="#7C3AED" class="connection" stroke-width="2"></polygon> </marker><path d="M 203.748408 427.175321 C 257.450012 379.700012 289.200012 355.399994 357.268615 309.515307" stroke="#7C3AED" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:10.000000,9.865639;" marker-end="url(#mk-d2-474496264-1795641005)" mask="url(#d2-474496264)"></path><text x="278.500000" y="369.000000" fill="#676C7E" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">resume</text></g><g class="bGlmZWN5Y2xlLih3b3JraW5nIC0mZ3Q7IGNvbXBsZXRlZClbMF0="><marker id="mk-d2-474496264-952991474" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#059669" class="connection" stroke-width="3"></polygon> </marker><path d="M 432.155471 309.768553 C 451.200012 355.399994 456.250000 379.700012 456.250000 423.000000" stroke="#059669" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-474496264-952991474)" mask="url(#d2-474496264)"></path><text x="453.500000" y="371.000000" fill="#676C7E" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">success</text></g><g class="bGlmZWN5Y2xlLih3b3JraW5nIC0mZ3Q7IGZhaWxlZClbMF0="><marker id="mk-d2-474496264-3432949298" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#DC2626" class="connection" stroke-width="3"></polygon> </marker><path d="M 498.872077 295.866704 C 688.200012 353.000000 736.250000 379.700012 736.250000 423.000000" stroke="#DC2626" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-474496264-3432949298)" mask="url(#d2-474496264)"></path><text x="642.000000" y="344.000000" fill="#676C7E" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">error</text></g><mask id="d2-474496264" maskUnits="userSpaceOnUse" x="-85" y="-121" width="1065" height="749">
+<rect x="-85" y="-121" width="1065" height="749" fill="white"></rect>
+<rect x="398.000000" y="164.000000" width="37" height="21" fill="black"></rect>
+<rect x="158.000000" y="330.000000" width="82" height="21" fill="black"></rect>
+<rect x="252.000000" y="353.000000" width="53" height="21" fill="black"></rect>
+<rect x="426.000000" y="355.000000" width="55" height="21" fill="black"></rect>
+<rect x="623.000000" y="328.000000" width="38" height="21" fill="black"></rect>
+</mask></svg></svg></div><div class="d2-diagram__dark"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-d2-version="v0.7.0-HEAD" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1065 749"><svg class="d2-3669289128 d2-svg" width="1065" height="749" viewBox="-85 -121 1065 749"><rect x="-85.000000" y="-121.000000" width="1065.000000" height="749.000000" rx="0.000000" fill="#1E1E2E" class="fill-N7" stroke-width="0"></rect><style type="text/css">
+.d2-3669289128 .text {
+	font-family: var(--font-sans);
+}
+
+.d2-3669289128 .text-bold {
+	font-family: var(--font-sans);
+}
+
+.d2-3669289128 .text-italic {
+	font-family: var(--font-sans);
+}
+</style><style type="text/css">.shape {
+  shape-rendering: geometricPrecision;
+  stroke-linejoin: round;
+}
+.connection {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.blend {
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+		.d2-3669289128 .fill-N1{fill:#CDD6F4;}
+		.d2-3669289128 .fill-N2{fill:#BAC2DE;}
+		.d2-3669289128 .fill-N3{fill:#A6ADC8;}
+		.d2-3669289128 .fill-N4{fill:#585B70;}
+		.d2-3669289128 .fill-N5{fill:#45475A;}
+		.d2-3669289128 .fill-N6{fill:#313244;}
+		.d2-3669289128 .fill-N7{fill:#1E1E2E;}
+		.d2-3669289128 .fill-B1{fill:#CBA6f7;}
+		.d2-3669289128 .fill-B2{fill:#CBA6f7;}
+		.d2-3669289128 .fill-B3{fill:#6C7086;}
+		.d2-3669289128 .fill-B4{fill:#585B70;}
+		.d2-3669289128 .fill-B5{fill:#45475A;}
+		.d2-3669289128 .fill-B6{fill:#313244;}
+		.d2-3669289128 .fill-AA2{fill:#f38BA8;}
+		.d2-3669289128 .fill-AA4{fill:#45475A;}
+		.d2-3669289128 .fill-AA5{fill:#313244;}
+		.d2-3669289128 .fill-AB4{fill:#45475A;}
+		.d2-3669289128 .fill-AB5{fill:#313244;}
+		.d2-3669289128 .stroke-N1{stroke:#CDD6F4;}
+		.d2-3669289128 .stroke-N2{stroke:#BAC2DE;}
+		.d2-3669289128 .stroke-N3{stroke:#A6ADC8;}
+		.d2-3669289128 .stroke-N4{stroke:#585B70;}
+		.d2-3669289128 .stroke-N5{stroke:#45475A;}
+		.d2-3669289128 .stroke-N6{stroke:#313244;}
+		.d2-3669289128 .stroke-N7{stroke:#1E1E2E;}
+		.d2-3669289128 .stroke-B1{stroke:#CBA6f7;}
+		.d2-3669289128 .stroke-B2{stroke:#CBA6f7;}
+		.d2-3669289128 .stroke-B3{stroke:#6C7086;}
+		.d2-3669289128 .stroke-B4{stroke:#585B70;}
+		.d2-3669289128 .stroke-B5{stroke:#45475A;}
+		.d2-3669289128 .stroke-B6{stroke:#313244;}
+		.d2-3669289128 .stroke-AA2{stroke:#f38BA8;}
+		.d2-3669289128 .stroke-AA4{stroke:#45475A;}
+		.d2-3669289128 .stroke-AA5{stroke:#313244;}
+		.d2-3669289128 .stroke-AB4{stroke:#45475A;}
+		.d2-3669289128 .stroke-AB5{stroke:#313244;}
+		.d2-3669289128 .background-color-N1{background-color:#CDD6F4;}
+		.d2-3669289128 .background-color-N2{background-color:#BAC2DE;}
+		.d2-3669289128 .background-color-N3{background-color:#A6ADC8;}
+		.d2-3669289128 .background-color-N4{background-color:#585B70;}
+		.d2-3669289128 .background-color-N5{background-color:#45475A;}
+		.d2-3669289128 .background-color-N6{background-color:#313244;}
+		.d2-3669289128 .background-color-N7{background-color:#1E1E2E;}
+		.d2-3669289128 .background-color-B1{background-color:#CBA6f7;}
+		.d2-3669289128 .background-color-B2{background-color:#CBA6f7;}
+		.d2-3669289128 .background-color-B3{background-color:#6C7086;}
+		.d2-3669289128 .background-color-B4{background-color:#585B70;}
+		.d2-3669289128 .background-color-B5{background-color:#45475A;}
+		.d2-3669289128 .background-color-B6{background-color:#313244;}
+		.d2-3669289128 .background-color-AA2{background-color:#f38BA8;}
+		.d2-3669289128 .background-color-AA4{background-color:#45475A;}
+		.d2-3669289128 .background-color-AA5{background-color:#313244;}
+		.d2-3669289128 .background-color-AB4{background-color:#45475A;}
+		.d2-3669289128 .background-color-AB5{background-color:#313244;}
+		.d2-3669289128 .color-N1{color:#CDD6F4;}
+		.d2-3669289128 .color-N2{color:#BAC2DE;}
+		.d2-3669289128 .color-N3{color:#A6ADC8;}
+		.d2-3669289128 .color-N4{color:#585B70;}
+		.d2-3669289128 .color-N5{color:#45475A;}
+		.d2-3669289128 .color-N6{color:#313244;}
+		.d2-3669289128 .color-N7{color:#1E1E2E;}
+		.d2-3669289128 .color-B1{color:#CBA6f7;}
+		.d2-3669289128 .color-B2{color:#CBA6f7;}
+		.d2-3669289128 .color-B3{color:#6C7086;}
+		.d2-3669289128 .color-B4{color:#585B70;}
+		.d2-3669289128 .color-B5{color:#45475A;}
+		.d2-3669289128 .color-B6{color:#313244;}
+		.d2-3669289128 .color-AA2{color:#f38BA8;}
+		.d2-3669289128 .color-AA4{color:#45475A;}
+		.d2-3669289128 .color-AA5{color:#313244;}
+		.d2-3669289128 .color-AB4{color:#45475A;}
+		.d2-3669289128 .color-AB5{color:#313244;}.appendix text.text{fill:#CDD6F4}.md{--color-fg-default:#CDD6F4;--color-fg-muted:#BAC2DE;--color-fg-subtle:#A6ADC8;--color-canvas-default:#1E1E2E;--color-canvas-subtle:#313244;--color-border-default:#CBA6f7;--color-border-muted:#CBA6f7;--color-neutral-muted:#313244;--color-accent-fg:#CBA6f7;--color-accent-emphasis:#CBA6f7;--color-attention-subtle:#BAC2DE;--color-danger-fg:red;}.sketch-overlay-B1{fill:url(#streaks-normal-d2-3669289128);mix-blend-mode:color-burn}.sketch-overlay-B2{fill:url(#streaks-normal-d2-3669289128);mix-blend-mode:color-burn}.sketch-overlay-B3{fill:url(#streaks-dark-d2-3669289128);mix-blend-mode:overlay}.sketch-overlay-B4{fill:url(#streaks-dark-d2-3669289128);mix-blend-mode:overlay}.sketch-overlay-B5{fill:url(#streaks-darker-d2-3669289128);mix-blend-mode:lighten}.sketch-overlay-B6{fill:url(#streaks-darker-d2-3669289128);mix-blend-mode:lighten}.sketch-overlay-AA2{fill:url(#streaks-normal-d2-3669289128);mix-blend-mode:color-burn}.sketch-overlay-AA4{fill:url(#streaks-darker-d2-3669289128);mix-blend-mode:lighten}.sketch-overlay-AA5{fill:url(#streaks-darker-d2-3669289128);mix-blend-mode:lighten}.sketch-overlay-AB4{fill:url(#streaks-darker-d2-3669289128);mix-blend-mode:lighten}.sketch-overlay-AB5{fill:url(#streaks-darker-d2-3669289128);mix-blend-mode:lighten}.sketch-overlay-N1{fill:url(#streaks-normal-d2-3669289128);mix-blend-mode:color-burn}.sketch-overlay-N2{fill:url(#streaks-normal-d2-3669289128);mix-blend-mode:color-burn}.sketch-overlay-N3{fill:url(#streaks-normal-d2-3669289128);mix-blend-mode:color-burn}.sketch-overlay-N4{fill:url(#streaks-dark-d2-3669289128);mix-blend-mode:overlay}.sketch-overlay-N5{fill:url(#streaks-darker-d2-3669289128);mix-blend-mode:lighten}.sketch-overlay-N6{fill:url(#streaks-darker-d2-3669289128);mix-blend-mode:lighten}.sketch-overlay-N7{fill:url(#streaks-darker-d2-3669289128);mix-blend-mode:lighten}.light-code{display: none}.dark-code{display: block}</style><defs>
+	<filter id="shadow-filter" width="200%" height="200%" x="-50%" y="-50%">
+		<feGaussianBlur stdDeviation="1.7 " in="SourceGraphic"></feGaussianBlur>
+		<feFlood flood-color="#3d4574" flood-opacity="0.4" result="ShadowFeFlood" in="SourceGraphic"></feFlood>
+		<feComposite in="ShadowFeFlood" in2="SourceAlpha" operator="in" result="ShadowFeComposite"></feComposite>
+		<feOffset dx="3" dy="5" result="ShadowFeOffset" in="ShadowFeComposite"></feOffset>
+		<feBlend in="SourceGraphic" in2="ShadowFeOffset" mode="normal" result="ShadowFeBlend"></feBlend>
+	</filter>
+</defs><g class="bGlmZWN5Y2xl"><g class="shape" filter="url(#shadow-filter)"><rect x="16.000000" y="20.000000" width="860.000000" height="502.000000" rx="16.000000" stroke="#60A5FA" fill="#EFF6FF" style="stroke-width:2;"></rect></g><text x="446.000000" y="7.000000" fill="#CDD6F4" class="text fill-N1" style="text-anchor:middle;font-size:28px">A2A task lifecycle</text></g><g class="bGlmZWN5Y2xlLnN1Ym1pdHRlZA=="><g class="shape"><rect x="296.000000" y="50.000000" width="240.000000" height="64.000000" rx="12.000000" stroke="#2563EB" fill="#DBEAFE" style="stroke-width:2;"></rect></g><text x="416.000000" y="87.500000" fill="#1E3A8A" class="text-bold" style="text-anchor:middle;font-size:16px">Submitted</text></g><g class="bGlmZWN5Y2xlLndvcmtpbmc="><g class="shape" filter="url(#shadow-filter)"><path d="M 356 235 L 296 271 L 356 307 L 476 307 L 536 271 L 476 235 Z" stroke="#D97706" fill="#FEF3C7" style="stroke-width:3;"></path></g><text x="416.000000" y="276.500000" fill="#78350F" class="text-bold" style="text-anchor:middle;font-size:16px">Working</text></g><g class="bGlmZWN5Y2xlLmlucHV0"><g class="shape"><rect x="46.000000" y="428.000000" width="240.000000" height="64.000000" rx="12.000000" stroke="#2563EB" fill="#DBEAFE" style="stroke-width:2;"></rect></g><text x="166.000000" y="465.500000" fill="#1E3A8A" class="text-bold" style="text-anchor:middle;font-size:16px">Input required</text></g><g class="bGlmZWN5Y2xlLmNvbXBsZXRlZA=="><g class="shape"><rect x="346.000000" y="428.000000" width="220.000000" height="64.000000" rx="12.000000" stroke="#059669" fill="#D1FAE5" style="stroke-width:2;"></rect></g><text x="456.000000" y="465.500000" fill="#064E3B" class="text-bold" style="text-anchor:middle;font-size:16px">Completed</text></g><g class="bGlmZWN5Y2xlLmZhaWxlZA=="><g class="shape"><rect x="626.000000" y="428.000000" width="220.000000" height="64.000000" rx="12.000000" stroke="#DC2626" fill="#FEE2E2" style="stroke-width:2;"></rect></g><text x="736.000000" y="465.500000" fill="#7F1D1D" class="text-bold" style="text-anchor:middle;font-size:16px">Failed</text></g><g class="bGlmZWN5Y2xlLihzdWJtaXR0ZWQgLSZndDsgd29ya2luZylbMF0="><marker id="mk-d2-3669289128-3434333728" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#7C3AED" class="connection" stroke-width="3"></polygon> </marker><path d="M 416.250000 116.000000 C 416.250000 162.300003 416.200012 186.600006 416.024795 229.000051" stroke="#7C3AED" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-3669289128-3434333728)" mask="url(#d2-3669289128)"></path><text x="416.500000" y="180.000000" fill="#BAC2DE" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">start</text></g><g class="bGlmZWN5Y2xlLih3b3JraW5nIC0mZ3Q7IGlucHV0KVswXQ=="><path d="M 334.143848 296.917820 C 159.000000 353.200012 121.300003 379.700012 145.822279 423.695855" stroke="#7C3AED" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-3669289128-3434333728)" mask="url(#d2-3669289128)"></path><text x="199.000000" y="346.000000" fill="#BAC2DE" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">needs input</text></g><g class="bGlmZWN5Y2xlLihpbnB1dCAtJmd0OyB3b3JraW5nKVswXQ=="><marker id="mk-d2-3669289128-1795641005" markerWidth="10.000000" markerHeight="12.000000" refX="7.000000" refY="6.000000" viewBox="0.000000 0.000000 10.000000 12.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 10.000000,6.000000 0.000000,12.000000" fill="#7C3AED" class="connection" stroke-width="2"></polygon> </marker><path d="M 203.748408 427.175321 C 257.450012 379.700012 289.200012 355.399994 357.268615 309.515307" stroke="#7C3AED" fill="none" class="connection" style="stroke-width:2;stroke-dasharray:10.000000,9.865639;" marker-end="url(#mk-d2-3669289128-1795641005)" mask="url(#d2-3669289128)"></path><text x="278.500000" y="369.000000" fill="#BAC2DE" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">resume</text></g><g class="bGlmZWN5Y2xlLih3b3JraW5nIC0mZ3Q7IGNvbXBsZXRlZClbMF0="><marker id="mk-d2-3669289128-952991474" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#059669" class="connection" stroke-width="3"></polygon> </marker><path d="M 432.155471 309.768553 C 451.200012 355.399994 456.250000 379.700012 456.250000 423.000000" stroke="#059669" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-3669289128-952991474)" mask="url(#d2-3669289128)"></path><text x="453.500000" y="371.000000" fill="#BAC2DE" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">success</text></g><g class="bGlmZWN5Y2xlLih3b3JraW5nIC0mZ3Q7IGZhaWxlZClbMF0="><marker id="mk-d2-3669289128-3432949298" markerWidth="13.000000" markerHeight="16.000000" refX="8.500000" refY="8.000000" viewBox="0.000000 0.000000 13.000000 16.000000" orient="auto" markerUnits="userSpaceOnUse"> <polygon points="0.000000,0.000000 13.000000,8.000000 0.000000,16.000000" fill="#DC2626" class="connection" stroke-width="3"></polygon> </marker><path d="M 498.872077 295.866704 C 688.200012 353.000000 736.250000 379.700012 736.250000 423.000000" stroke="#DC2626" fill="none" class="connection" style="stroke-width:3;" marker-end="url(#mk-d2-3669289128-3432949298)" mask="url(#d2-3669289128)"></path><text x="642.000000" y="344.000000" fill="#BAC2DE" class="text-italic fill-N2" style="text-anchor:middle;font-size:16px">error</text></g><mask id="d2-3669289128" maskUnits="userSpaceOnUse" x="-85" y="-121" width="1065" height="749">
+<rect x="-85" y="-121" width="1065" height="749" fill="white"></rect>
+<rect x="398.000000" y="164.000000" width="37" height="21" fill="black"></rect>
+<rect x="158.000000" y="330.000000" width="82" height="21" fill="black"></rect>
+<rect x="252.000000" y="353.000000" width="53" height="21" fill="black"></rect>
+<rect x="426.000000" y="355.000000" width="55" height="21" fill="black"></rect>
+<rect x="623.000000" y="328.000000" width="38" height="21" fill="black"></rect>
 </mask></svg></svg></div><figcaption>Simplified A2A task lifecycle</figcaption></figure>
 <p>A client can receive updates by polling, streaming, or webhook. This is more than a remote function call: the protocol represents an ongoing collaboration whose state can survive any one request.</p>
 <h2 id="what-changed-in-a2a-v10">What changed in A2A v1.0</h2>
